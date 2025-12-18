@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8">
+<title>Validación de documentos académicos electrónicos</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<style>
+body{
+  margin:0;
+  font-family: Arial, sans-serif;
+  background:#ffffff;
+  color:#333;
+}
+
+.contenedor{
+  max-width:420px;
+  margin:0 auto;
+}
+
+/* ===== ENCABEZADO ===== */
+.encabezado img{
+  width:100%;
+  display:block;
+}
+
+/* ===== CONTENIDO ===== */
+.contenido{
+  padding:22px;
+}
+
+.titulo{
+  font-size:22px;
+  color:#555;
+  margin-bottom:6px;
+}
+
+.subtitulo{
+  font-size:26px;
+  font-weight:bold;
+  margin-bottom:22px;
+}
+
+/* ===== CAMPOS ===== */
+.label{
+  font-size:13px;
+  color:#777;
+  margin-bottom:4px;
+}
+
+.campo{
+  border:2px solid #e1c98b;
+  border-radius:10px;
+  padding:12px;
+  font-size:16px;
+  margin-bottom:16px;
+  background:#fff;
+}
+
+/* ===== FECHA ===== */
+.fecha{
+  margin-top:10px;
+  font-size:16px;
+}
+
+/* ===== PALOMITA ===== */
+.check-wrapper{
+  display:flex;
+  justify-content:center;
+  margin:22px 0 16px;
+}
+
+.check{
+  width:64px;
+  height:64px;
+  border-radius:50%;
+  border:6px solid #3cc04b;
+  display:flex;
+  align-items:center;
+  justify-content:center;
+}
+
+.check::before{
+  content:"✓";
+  font-size:36px;
+  font-weight:bold;
+  color:#3cc04b;
+}
+
+/* ===== BLOQUE GRIS INFERIOR ===== */
+.bloque-info{
+  background:#f2f2f2;      /* fondo gris */
+  color:#8c8c8c;           /* texto gris */
+  text-align:center;
+  padding:18px 12px 22px;
+  font-size:14px;
+}
+</style>
+</head>
+
+<body>
+
+<div class="contenedor">
+
+  <!-- ENCABEZADO -->
+  <div class="encabezado">
+    <img src="https://i.imgur.com/qMfDcFa.jpeg" alt="Encabezado">
+  </div>
+
+  <!-- CONTENIDO -->
+  <div class="contenido">
+
+    <div class="titulo">Sistema de Información y Gestión Educativa</div>
+    <div class="subtitulo">Validación de documentos académicos electrónicos</div>
+
+    <div class="label">NOMBRE</div>
+    <div class="campo" id="nombre">—</div>
+
+    <div class="label">CURP</div>
+    <div class="campo" id="curp">—</div>
+
+    <div class="label">DOCUMENTO</div>
+    <div class="campo">Constancia (120 horas)</div>
+
+    <div class="fecha">
+      <strong>FECHA</strong><br>
+      19 de noviembre de 2024
+    </div>
+
+    <!-- PALOMITA -->
+    <div class="check-wrapper">
+      <div class="check"></div>
+    </div>
+
+  </div>
+
+  <!-- BLOQUE GRIS -->
+  <div class="bloque-info">
+    Sistema Electrónico Estatal del Estado de Coahuila<br>
+    Es una fuente de inteligencia anticorrupción para la consulta de información.
+  </div>
+
+</div>
+
+<script>
+const params = new URLSearchParams(window.location.search);
+
+document.getElementById("nombre").textContent =
+  params.get("nombre") || "—";
+
+document.getElementById("curp").textContent =
+  params.get("curp") || "—";
+</script>
+
+</body>
+</html>
